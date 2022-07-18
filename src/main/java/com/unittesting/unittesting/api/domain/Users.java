@@ -9,9 +9,6 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "users")
 @Getter
 @Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

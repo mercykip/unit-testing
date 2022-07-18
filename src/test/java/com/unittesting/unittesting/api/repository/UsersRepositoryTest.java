@@ -14,24 +14,40 @@ class UsersRepositoryTest {
     @Autowired
     private UsersRepository userRepository;
 
+    @AfterEach
+    void tearDown() {
+        //delete all users after each test
+        userRepository.deleteAll();
+    }
+
     @Test
-    void selectExistsEmail() {
-
-        String email = "mercyjemosop@gmail.com";
-
+    void selectEmailExists() {
         //create a user in  h2
+        String email = "mercyjemosop@gmail.com";
         Users Users = new Users(
-
                 "mercy",
-                "mercyjemosop@gmail.com"
+                email
         );
         userRepository.save(Users);
 
-        //check if the user exists by email
+        //check if the user exists by email in your Users table
         boolean exist = userRepository.selectExistsEmail(email);
 
         //check if our boolean value matches the expected value
         assertThat(exist).isTrue();
-
     }
+
+    @Test
+    void selectEmailNotExist() {
+        //create a user in  h2
+        String email = "mercyjemosops@gmail.com";
+
+        //check if the user exists by email in your Users table()
+        boolean exist = userRepository.selectExistsEmail(email);
+
+        //check if our boolean value matches the expected value
+        assertThat(exist).isFalse();
+    }
+
+
 }
