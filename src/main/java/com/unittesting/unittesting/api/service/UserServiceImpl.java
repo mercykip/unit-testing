@@ -21,8 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Users addUsers(Users user) {
-        Boolean existsEmail = usersRepository
-                .selectExistsEmail(user.getEmail());
+        Boolean existsEmail = usersRepository.selectExistsEmail(user.getEmail());
 
         if (existsEmail) {
             throw new BadRequestException(

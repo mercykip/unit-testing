@@ -9,5 +9,4 @@ class UnittestingApplicationTests {
     void contextLoads() {
     }
 
-
 }

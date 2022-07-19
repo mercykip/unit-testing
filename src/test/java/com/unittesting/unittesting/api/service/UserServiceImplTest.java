@@ -30,12 +30,6 @@ class UserServiceImplTest {
         userService = new UserServiceImpl(userRepository);
     }
 
-//    @AfterEach
-//    void tearDown() {
-//        //delete all users after each test
-//        userRepository.deleteAll();
-//    }
-
     @Test
     void getUsers() {
         userService.getUsers();
@@ -58,7 +52,6 @@ class UserServiceImplTest {
     }
 
     @Test
-    @DirtiesContext
     void deleteUsers() {
         Integer id = 1;
         given(userRepository.existsById(id)).willReturn(true);
@@ -88,7 +81,7 @@ class UserServiceImplTest {
         //check if user id exit
         //if email exist, the save method should not be called
         //create a user in  h2
-        Integer id = 1;
+        int id = 1;
 
         given(userRepository.existsById(id)).willReturn(false);
 

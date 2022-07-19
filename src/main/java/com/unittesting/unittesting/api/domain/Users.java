@@ -5,10 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-@Entity
-@Table(name = "users")
-@Getter
-@Setter
+@Entity @Table(name = "users") @Getter @Setter
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +21,6 @@ public class Users {
         this.name = name;
         this.email = email;
     }
-
     public Users(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
