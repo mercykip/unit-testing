@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.unittesting.unittesting.globals.GlobalRepository.userRepository;
-
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -18,8 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Users> getUsers() {
-
-         return  usersRepository.findAll();
+        return usersRepository.findAll();
     }
 
     @Override
@@ -32,8 +29,15 @@ public class UserServiceImpl implements UserService {
                     "Email " + user.getEmail() + " taken");
         }
 
-        return null;
+        return usersRepository.save(user);
     }
 
+    public void deleteUser(Integer id) {
+        if(!usersRepository.existsById(id)) {
+            throw new UserNotFoundException(
+                    "User with id " + id + " does not exists");
+        }
+        usersRepository.deleteById(id);
+    }
 
 }

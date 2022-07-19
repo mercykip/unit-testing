@@ -24,4 +24,10 @@ public class Users {
         this.name = name;
         this.email = email;
     }
+
+    public Users(Integer id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 }
