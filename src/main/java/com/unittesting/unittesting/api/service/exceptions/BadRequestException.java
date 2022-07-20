@@ -1,4 +1,4 @@
-package com.unittesting.unittesting.api.service;
+package com.unittesting.unittesting.api.service.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
