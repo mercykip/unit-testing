@@ -7,4 +7,5 @@ import org.springframework.data.jpa.domain.Specification;
 
 public interface UserDataService {
     Page<Users> getUsers(Specification specification, PageRequest pageRequest);
+    Users saveUsers(Users user);
 }

@@ -1,5 +1,6 @@
 package com.unittesting.unittesting.api.service;
 
+import com.unittesting.unittesting.api.domain.Users;
 import com.unittesting.unittesting.api.repository.UsersRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,11 @@ public class UserDataServiceImpl implements UserDataService {
     @Override
     public Page getUsers(Specification specification, PageRequest pageRequest) {
         return usersRepository.findAll(specification,pageRequest);
+    }
+
+    @Override
+    public Users saveUsers(Users user) {
+        return null;
     }
 
 
